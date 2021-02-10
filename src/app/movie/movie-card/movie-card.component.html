@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-img-wrapper">
+    <img
+      class="card-img-top"
+      src="./assets/images/movie-covers/{{ movie.img }}"
+    />
+  </div>
+  <div class="card-body p-1">
+    <h6 class="mb-0">
+      <span class="font-highlight">Movie Name :</span>
+      <span>{{ movie.name }}</span> <br />
+      <span class="font-highlight">Description :</span
+      ><span>{{ movie.description }}</span>
+    </h6>
+
+    <hr class="mt-0 mb-2" />
+
+    <h6 class="mb-0">
+      Rate: <span class="font-highlight">{{ movie.rate }}</span> | Length:
+      <span class="font-highlight">{{ movie.length }}</span
+      >|
+      <span *ngIf="movie.comingsoon" class="font-highlight">Coming Soon</span>
+    </h6>
+  </div>
+</div>

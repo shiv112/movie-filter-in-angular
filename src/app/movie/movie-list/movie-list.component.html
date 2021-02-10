@@ -1,0 +1,28 @@
+<!-- filter -->
+<label>Filter Movie: &nbsp; </label>
+<input [(ngModel)]="Name" />
+<!-- sort -->
+<label class="ml-4">Sort by &nbsp;</label>
+<select [(ngModel)]="SortbyParam">
+  <option value="rate">Top Rated</option>
+  <option value="comingsoon">Coming Soon</option>
+</select>
+<!-- if user selected top rated in drop down -->
+<div *ngIf="SortbyParam != 'comingsoon'" class="row">
+  <div
+    *ngFor="let movie of movies | filter: Name:'name' | sort: [SortbyParam]"
+    class="col-sm-4"
+  >
+    <div class="shadow-lg p-3 mb-4">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+  </div>
+</div>
+<!-- if user selected coming soon in drop down -->
+<div *ngIf="SortbyParam == 'comingsoon'" class="row">
+  <div *ngFor="let movie of movies | comingsoon" class="col-sm-4">
+    <div class="shadow-lg p-3 mb-4">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+  </div>
+</div>
